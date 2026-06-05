@@ -7,6 +7,12 @@
 
 static bool state = false;
 
+static void timer_callback(void *args)
+{
+    state = !state;
+    gpio_set_level(LED, state);
+}
+
 void app_main(void)
 {
     gpio_reset_pin(LED);
